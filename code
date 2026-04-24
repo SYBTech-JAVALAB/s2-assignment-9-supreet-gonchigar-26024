@@ -1,0 +1,58 @@
+import java.io.*;
+import java.util.*;
+
+public class StudentFile {
+    public static void main(String[] args) throws Exception {
+
+        Scanner sc = new Scanner(System.in);
+        File file = new File("students.txt");
+
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+
+        System.out.println("--- Student File Manager ---");
+        System.out.println("1. Add Student (Append)");
+        System.out.println("2. Add Student (Overwrite)");
+        System.out.println("3. Display Students");
+        System.out.println("4. Exit");
+
+        System.out.print("Enter choice: ");
+        int ch = sc.nextInt();
+        sc.nextLine();
+
+        if (ch == 1 || ch == 2) {
+            FileWriter fw = new FileWriter(file, ch == 1);
+
+            System.out.print("\nEnter Student Name: ");
+            String name = sc.nextLine();
+
+            System.out.print("Enter Student ID: ");
+            String id = sc.nextLine();
+
+            System.out.print("Enter Grade: ");
+            String grade = sc.nextLine();
+
+            fw.write(name + "," + id + "," + grade + "\n");
+            fw.close();
+
+            System.out.println("Student record saved successfully!");
+        }
+
+        else if (ch == 3) {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+
+            System.out.println("\n--- Student Records ---");
+
+            while ((line = br.readLine()) != null) {
+                String[] s = line.split(",");
+                System.out.println("Name: " + s[0] + ", ID: " + s[1] + ", Grade: " + s[2]);
+            }
+
+            br.close();
+        }
+
+        sc.close();
+    }
+}
