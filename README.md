@@ -1,1 +1,16 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/qFWvVBdE)
+--- Student File Manager ---
+1. Add Student (Append)
+2. Add Student (Overwrite)
+3. Display Students
+4. Exit
+Enter choice: 1
+
+Enter Student Name: Rahul
+Enter Student ID: 101
+Enter Grade: A
+Student record saved successfully!
+
+Enter choice: 3
+
+--- Student Records ---
+Name: Rahul, ID: 101, Grade: A
